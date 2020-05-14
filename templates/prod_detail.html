@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block producto %} {{ object.producto }} {% endblock producto %}</h1>
+        {% load staticfiles %}
+        <img src="{{ producto.imagen.url }}" height="300px" width="300px">
+        <p class=" text-muted">{{ producto.categoria }} |  Q. {{ producto.price}}</p>
+        <p class="card-text ">{{ producto.descripcion }}</p>
+      </div>
+      <a href="{% url 'home' %}" class="btn btn-primary">Regresar</a>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+  </div>
+</div>
+
+{% endblock content %}
